@@ -8,9 +8,9 @@ Personal digital business card hosted at [gogokotsev00.github.io](https://gogoko
 - **Location:** Berlin, Germany
 
 ## Tech Stack
-- **React 18** + **TypeScript**
-- **Vite 6**
-- **Tailwind CSS v4**
+- **React 19.3** + **TypeScript 7.0**
+- **Vite 8.3**
+- **Tailwind CSS v4.3**
 - **Lucide Icons**
 
 ## Local Development
