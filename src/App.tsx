@@ -38,7 +38,7 @@ function BrandIcon({ icon, className }: { icon: { title: string; path: string };
 export const PROFILE = {
   name: 'Georgi Kotsev',
   initials: 'GK',
-  role: 'Software Engineer',
+  role: 'Full Stack Software Engineer',
   degree: 'M.Sc. Computer Science',
   university: 'Technical University of Berlin',
   location: 'Berlin, Germany',
@@ -49,6 +49,21 @@ export const PROFILE = {
   linkedinUrl: 'https://www.linkedin.com/in/georgi-kotsev-1618431ba',
   linkedinHandle: 'in/georgi-kotsev-1618431ba',
 }
+
+const TECH_STACK = [
+  { category: 'Languages', technologies: ['Java', 'Python', 'TypeScript'] },
+  { category: 'Backend', technologies: ['Spring Boot', 'WildFly', 'jOOQ'] },
+  { category: 'Databases', technologies: ['Oracle', 'PostgreSQL'] },
+  { category: 'Frontend', technologies: ['Svelte', 'Angular', 'PrimeFaces', 'ReactJS'] },
+  { category: 'Identity & Access', technologies: ['Keycloak'] },
+  { category: 'Testing', technologies: ['Selenium', 'Playwright'] },
+  { category: 'Build & Collaboration', technologies: ['Gradle', 'Maven', 'GitLab'] },
+  { category: 'Containers & Orchestration', technologies: ['Docker', 'Kubernetes', 'Helm'] },
+  { category: 'Observability', technologies: ['ELK', 'Grafana', 'Prometheus'] },
+  { category: 'AI Development', technologies: ['GitHub Copilot', 'Antigravity'] },
+  { category: 'Security', technologies: ['Dependency-Track'] },
+  { category: 'Code Quality', technologies: ['SonarQube'] },
+]
 
 export default function App() {
   const [isDark, setIsDark] = useState(true)
@@ -209,7 +224,7 @@ export default function App() {
       </div>
 
       {/* Top Navigation / Controls */}
-      <header className="relative z-20 w-full max-w-xl flex items-center justify-between pt-2">
+      <header className="relative z-20 w-full max-w-xl flex flex-wrap items-center justify-between gap-3 pt-2">
         <div
           className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono-code border backdrop-blur-md transition-colors ${
             isDark
@@ -254,7 +269,7 @@ export default function App() {
       </header>
 
       {/* Main 3D Interactive Business Card Container */}
-      <main className="relative z-10 flex-1 flex items-center justify-center w-full my-6">
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center gap-6 w-full my-6">
         <div className="perspective-1200 w-full max-w-[460px]">
           <div
             ref={cardRef}
@@ -268,11 +283,11 @@ export default function App() {
                 ? 'transform 120ms cubic-bezier(0.03, 0.98, 0.52, 0.99)'
                 : 'transform 650ms cubic-bezier(0.22, 1, 0.36, 1)',
             }}
-            className="relative w-full preserve-3d"
+            className="relative grid w-full preserve-3d"
           >
             {/* ==================== CARD FRONT ==================== */}
             <div
-              className={`relative w-full rounded-3xl p-7 sm:p-9 border backdrop-blur-2xl backface-hidden overflow-hidden transition-colors duration-500 ${
+              className={`relative [grid-area:1/1] min-w-0 w-full rounded-3xl p-5 sm:p-9 border backdrop-blur-2xl backface-hidden overflow-hidden transition-colors duration-500 ${
                 isDark
                   ? 'bg-slate-900/65 border-white/15 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.75),0_0_1px_1px_rgba(255,255,255,0.08)]'
                   : 'bg-white/75 border-white/90 shadow-[0_25px_60px_-15px_rgba(30,41,59,0.14),0_0_1px_1px_rgba(15,23,42,0.05)]'
@@ -420,13 +435,13 @@ export default function App() {
                   href={PROFILE.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex items-center justify-between px-4 py-3 rounded-xl font-medium text-sm border transition-all duration-200 active:scale-[0.98] ${
+                  className={`group flex items-center justify-between gap-1 px-2.5 sm:px-4 py-3 rounded-xl font-medium text-sm border transition-all duration-200 active:scale-[0.98] ${
                     isDark
                       ? 'bg-white/[0.05] hover:bg-white/[0.1] border-white/10 hover:border-white/25 text-white'
                       : 'bg-white hover:bg-slate-50 border-slate-200/90 hover:border-slate-300 text-slate-800 shadow-2xs'
                   }`}
                 >
-                  <span className="flex items-center gap-2.5">
+                  <span className="flex items-center gap-1.5 sm:gap-2.5">
                     <BrandIcon icon={siGithub} className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" />
                     <span>GitHub</span>
                   </span>
@@ -437,13 +452,13 @@ export default function App() {
                   href={PROFILE.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex items-center justify-between px-4 py-3 rounded-xl font-medium text-sm border transition-all duration-200 active:scale-[0.98] ${
+                  className={`group flex items-center justify-between gap-1 px-2.5 sm:px-4 py-3 rounded-xl font-medium text-sm border transition-all duration-200 active:scale-[0.98] ${
                     isDark
                       ? 'bg-[#0A66C2]/20 hover:bg-[#0A66C2]/30 border-[#0A66C2]/40 hover:border-[#0A66C2]/60 text-sky-100'
                       : 'bg-[#0A66C2]/10 hover:bg-[#0A66C2]/15 border-[#0A66C2]/25 text-[#0A66C2] shadow-2xs'
                   }`}
                 >
-                  <span className="flex items-center gap-2.5">
+                  <span className="flex items-center gap-1.5 sm:gap-2.5">
                     <BrandIcon icon={siLinkedin} className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
                     <span>LinkedIn</span>
                   </span>
@@ -453,7 +468,7 @@ export default function App() {
 
               {/* Card Footer Actions: Save Contact (vCard) & Share Link */}
               <div
-                className={`relative pt-4 border-t flex items-center justify-between gap-2 ${
+                className={`relative pt-4 border-t flex flex-wrap items-center justify-between gap-2 ${
                   isDark ? 'border-white/10' : 'border-slate-200/80'
                 }`}
               >
@@ -509,7 +524,7 @@ export default function App() {
             {/* ==================== CARD BACK (DEVELOPER VIEW) ==================== */}
             <div
               className={`
-                absolute inset-0 w-full h-full rounded-3xl p-7 sm:p-8 border backdrop-blur-2xl backface-hidden rotate-y-180 flex flex-col justify-between overflow-hidden transition-colors duration-500
+                relative [grid-area:1/1] min-w-0 w-full rounded-3xl p-5 sm:p-8 border backdrop-blur-2xl backface-hidden rotate-y-180 flex flex-col justify-between overflow-hidden transition-colors duration-500
                 ${
                   isDark
                     ? 'bg-slate-900/80 border-white/15 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.75)]'
@@ -539,7 +554,7 @@ export default function App() {
 
                 {/* Developer JSON Representation */}
                 <pre
-                  className={`font-mono-code text-xs sm:text-[13px] leading-relaxed overflow-x-auto p-4 rounded-2xl border ${
+                  className={`font-mono-code text-xs sm:text-[13px] leading-relaxed whitespace-pre-wrap break-words sm:whitespace-pre sm:overflow-x-auto p-4 rounded-2xl border ${
                     isDark
                       ? 'bg-slate-950/80 border-white/10 text-slate-300'
                       : 'bg-slate-900 border-slate-800 text-slate-200'
@@ -578,7 +593,7 @@ export default function App() {
               </div>
 
               {/* Back Footer */}
-              <div className="flex items-center justify-between pt-4 border-t border-white/10">
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
                 <span
                   className={`text-xs font-mono-code ${
                     isDark ? 'text-slate-400' : 'text-slate-500'
@@ -601,6 +616,44 @@ export default function App() {
             </div>
           </div>
         </div>
+
+        <section
+          aria-labelledby="tech-stack-title"
+          className={`w-full max-w-[460px] rounded-3xl p-7 sm:p-8 border backdrop-blur-2xl transition-colors duration-500 ${
+            isDark
+              ? 'bg-slate-900/65 border-white/15 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.75)]'
+              : 'bg-white/75 border-white/90 shadow-[0_25px_60px_-15px_rgba(30,41,59,0.14)]'
+          }`}
+        >
+          <h2 id="tech-stack-title" className="font-display text-xl font-bold tracking-tight">
+            Tech Stack
+          </h2>
+          <div className="mt-5 grid grid-cols-1 min-[400px]:grid-cols-2 gap-x-5 gap-y-5">
+            {TECH_STACK.map(({ category, technologies }) => (
+              <div key={category}>
+                <h3 className={`text-xs font-mono-code uppercase tracking-wider ${
+                  isDark ? 'text-cyan-400/90' : 'text-cyan-700'
+                }`}>
+                  {category}
+                </h3>
+                <ul className="mt-2 flex flex-wrap gap-1.5">
+                  {technologies.map((technology) => (
+                    <li
+                      key={technology}
+                      className={`rounded-lg border px-2.5 py-1 text-xs font-medium ${
+                        isDark
+                          ? 'bg-white/[0.04] border-white/10 text-slate-200'
+                          : 'bg-slate-50 border-slate-200 text-slate-700'
+                      }`}
+                    >
+                      {technology}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {/* Subtle Footer */}

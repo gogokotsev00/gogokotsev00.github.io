@@ -3,7 +3,7 @@
 Personal digital business card hosted at [gogokotsev00.github.io](https://gogokotsev00.github.io).
 
 - **Name:** Georgi Kotsev
-- **Position:** Software Engineer
+- **Position:** Full Stack Software Engineer
 - **Education:** M.Sc. Computer Science — Technical University of Berlin (TU Berlin)
 - **Location:** Berlin, Germany
 
